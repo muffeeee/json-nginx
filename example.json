@@ -1,0 +1,17 @@
+{ "server": [ {
+  "data": {
+    "listen": ["80", "[::]:80"],
+    "server_name": "example.com",
+    "autoindex": "off",
+    "root": "/var/www/",
+    "location": [
+      {
+        "args": "/examples",
+        "data": {
+          "alias": "/var/www/example/examples"
+        }
+      }
+    ]
+  }
+  }]
+}
