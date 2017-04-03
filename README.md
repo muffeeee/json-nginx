@@ -10,7 +10,7 @@ The entire config follows a small set of rules.
 Rule #1: Multiple directives aren't possible in JSON, so instead we put their values into an array.
 This: 
 ``` 
-"listen": ["443 ssl", "[::]:443 ssl"]'
+"listen": ["443 ssl", "[::]:443 ssl"]
 ```
 Will convert into:
 ``` 
