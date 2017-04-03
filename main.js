@@ -1,4 +1,4 @@
-var conf = require('config.json');
+var conf = require('example.json');
 function parseObject(obj) {
   var keys = Object.keys(obj);
   for (keys in obj) {
