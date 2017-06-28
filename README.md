@@ -20,12 +20,12 @@ listen: [::]:443 ssl;
 
 In other words, values in an array will be added as seperate directives containing the different values.
 
-Rule #2: Nginx blocks are defined as an array containing an object containing a "data" object.
+Rule #2: Nginx blocks are defined as an object containing a "data" object.
 This:
 ``` 
-"server": [ {
+"server": {
   "data": { } 
-} ]
+}
 ```
 Will convert into:
 ``` 
@@ -35,14 +35,32 @@ server { }
 Rule #2.1: If you need arguments for a block, add these in an `args` key.
 Example:
 ``` 
-"location": [ {
+"location": {
   "args": "/",
   "data": { } 
-] }
+}
 ```
 Will convert into:
 ``` 
 location / { }
 ```
-
+Rule #2.2: If you need multiple server/location blocks, just do the same as in Rule #1:
+```
+"location": [ 
+  {
+  "args": "/",
+  "data": { }
+  },
+  {
+  "args": "/home",
+  "data": { }
+  },
+]
+```
+Will convert into:
+```
+location / { }
+location /home { }
+```
 Keep these strict rules, and you should be fine :)
+I am working on a parser that converts nginx log files into this format. It's nearly done, it just needs more support for multiple serverblocks in a single file, etc. I will also work on parsing this over to something that doesn't log everything to STDOUT, but rather makes a nice JSON object that can either be put into a database or saved as a file. This is just a proof of concept.
