@@ -1,4 +1,4 @@
-var conf = require('example.json');
+var conf = require('./example.json');
 function parseObject(obj) {
   var keys = Object.keys(obj);
   for (keys in obj) {
@@ -6,7 +6,10 @@ function parseObject(obj) {
       console.log(keys + " " + obj[keys] + ";");
     }
     else if (typeof obj[keys] == "object" && !Array.isArray(obj[keys])) {
-      parseObject(obj[keys]);
+        if (obj[keys].args != undefined) { console.log(keys + " " + obj[keys].args + " {") }
+        else { console.log(keys + " {") }
+        parseObject(obj[keys].data);
+        console.log("}")
     }
     else if (Array.isArray(obj[keys])) {
       for (i=0; i<obj[keys].length; i++) {
@@ -19,7 +22,7 @@ function parseObject(obj) {
           parseObject(obj[keys][i].data);
           console.log("}")
         }
-        else parseObject(obj[keys]);
+        else parseObject(obj[keys])
       }
     }
   }
