@@ -63,4 +63,4 @@ location / { }
 location /home { }
 ```
 Keep these strict rules, and you should be fine :)
-I am working on a parser that converts nginx log files into this format. It's nearly done, it just needs more support for multiple serverblocks in a single file, etc. I will also work on parsing this over to something that doesn't log everything to STDOUT, but rather makes a nice JSON object that can either be put into a database or saved as a file. This is just a proof of concept.
+If you want to convert your existing nginx configs into this format, please see [nginx-json](https://github.com/muffeeee/nginx-json)
