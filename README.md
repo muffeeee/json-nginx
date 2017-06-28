@@ -1,4 +1,4 @@
-# nginx-json
+# json-nginx
 
 This is a small javascript snippet that will convert a specifically formatted JSON object/file into a fully working NginX-config.
 
