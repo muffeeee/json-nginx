@@ -1,5 +1,7 @@
 # json-nginx
 
+UPDATE 29/09/2019: I've started actively developing this again, and will (finally) release a finished version by November 1st :)
+
 This is a small javascript snippet that will convert a specifically formatted JSON object/file into a fully working NginX-config.
 *Please note that this is not a finished project. It will be published on NPM when it's done.*
 
