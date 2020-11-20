@@ -1,14 +1,16 @@
 # json-nginx
 
-UPDATE 29/09/2019: I've started actively developing this again, and will (finally) release a finished version by November 1st :)
+This is a small javascript snippet that will convert a specifically formatted JSON object/file into a (hopefully) working nginx-config.
 
-This is a small javascript snippet that will convert a specifically formatted JSON object/file into a fully working NginX-config.
 *Please note that this is not a finished project. It will be published on NPM when it's done.*
+This project is currently ready for early pre-beta testing. Feel free to test this library out, and give feedback!
 
-## Define 'specifically formatted JSON object'
+# Usage
+See "example" folder.
 
-Yeah, so this is where it gets tricky.
-The entire config follows a small set of rules.
+## What is a 'specifically formatted JSON object'?
+
+Yeah, so this is where it gets tricky. While the regular nginx config *kinda* resembles JSON, there's a key difference: Nginx configs allow multiple keys (or directives) to be defined after each other, which JSON doesn't. Read below to see how this library overcomes that problem:
 
 Rule #1: Multiple directives aren't possible in JSON, so instead we put their values into an array.
 This: 
