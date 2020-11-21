@@ -17,6 +17,9 @@ class json2nginx {
             if (typeof obj[keys] === "string") {
                 this.write(keys + " " + obj[keys] + ";");
             } else if (typeof obj[keys] == "object" && !Array.isArray(obj[keys])) {
+                if (obj[keys].id != undefined) {
+                    this.write("##_N2J_##_DO_NOT_REMOVE_##" + obj[keys].id)
+                }
                 if (obj[keys].args != undefined) {
                     this.write(keys + " " + obj[keys].args + " {");
                     this.objectDepth++;
@@ -32,6 +35,9 @@ class json2nginx {
                     if (typeof obj[keys][i] === "string") {
                         this.write(keys + " " + obj[keys][i] + ";");
                     } else if (obj[keys][i].data != undefined) {
+                        if (obj[keys][i].id != undefined) {
+                            this.write("##_N2J_##_DO_NOT_REMOVE_##" + obj[keys][i].id)
+                        }
                         if (obj[keys][i].args != undefined) {
                             this.write(keys + " " + obj[keys][i].args + " {");
                             this.objectDepth++;
